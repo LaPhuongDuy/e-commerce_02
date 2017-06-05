@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rating extends Model
 {
+    protected $fillable = [
+        'product_id', 'customer_id', 'score',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -14,5 +18,10 @@ class Rating extends Model
     public function product()
     {
         return $this->belongsTo(Product::class);
+    }
+
+    public function setProductAttribute()
+    {
+
     }
 }

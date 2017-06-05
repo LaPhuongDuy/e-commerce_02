@@ -41,7 +41,8 @@ return [
     'same_brand' => 'Same brand',
     'write_review' => 'Write Your Own Review',
     'question_rate' => 'How do you rate this product?',
-    'add_tags' => 'Add Tags:'
+    'add_tags' => 'Add Tags:',
+    'submit_review' => 'Submit Review'
 
 
 ];

@@ -35,7 +35,7 @@
                                         <div class="rating-box">
                                             <div style="width:{{ $product->score }}%" class="rating"></div>
                                         </div>
-                                        <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Your Review</a> </p>
+                                        <p class="rating-links"> <a href="#">{{ $product->ratings()->count() }} Rating(s)</a> <span class="separator">|</span> <a href="#">Add Your Review</a> </p>
                                     </div>
                                     <p class="availability in-stock"><span>In Stock</span></p>
                                     <div class="price-block">
@@ -144,8 +144,11 @@
                                         <div class="box-collateral box-reviews" id="customer-reviews">
                                             <div class="box-reviews1">
                                                 <div class="form-add">
-                                                    <form id="review-form" method="post" action="#">
+                                                        {!! Form::open(['action' => ['User\RatingController@store'], 'id' => 'review-form']) !!}
                                                         <h3>{{ trans('user/label.write_review') }}</h3>
+                                                            {!! Form::hidden('product_id', $product->id) !!}
+                                                            {!! Form::hidden('customer_id', Auth::id()) !!}
+
                                                         <fieldset>
                                                             <h4>{{ trans('user/label.question_rate') }}<em class="required">*</em></h4>
                                                             <span id="input-message-box"></span>
@@ -171,22 +174,22 @@
                                                                 <tbody>
                                                                 <tr class="first odd">
                                                                     <th>Score</th>
-                                                                    <td class="value"><input type="radio" class="radio" value="11" id="Price_1" name="ratings[3]"></td>
-                                                                    <td class="value"><input type="radio" class="radio" value="12" id="Price_2" name="ratings[3]"></td>
-                                                                    <td class="value"><input type="radio" class="radio" value="13" id="Price_3" name="ratings[3]"></td>
-                                                                    <td class="value"><input type="radio" class="radio" value="14" id="Price_4" name="ratings[3]"></td>
-                                                                    <td class="value last"><input type="radio" class="radio" value="15" id="Price_5" name="ratings[3]"></td>
+                                                                    <td class="value"><input type="radio" class="radio" value="1" id="Price_1" name="score"></td>
+                                                                    <td class="value"><input type="radio" class="radio" value="2" id="Price_2" name="score"></td>
+                                                                    <td class="value"><input type="radio" class="radio" value="3" id="Price_3" name="score"></td>
+                                                                    <td class="value"><input type="radio" class="radio" value="4" id="Price_4" name="score"></td>
+                                                                    <td class="value last"><input type="radio" class="radio" value="5" id="Price_5" name="score"></td>
                                                                 </tr>
                                                                 </tbody>
                                                             </table>
                                                             <input type="hidden" value="" class="validate-rating" name="validate_rating">
                                                             <div class="review2">
                                                                 <div class="buttons-set">
-                                                                    <button class="button submit" title="Submit Review" type="submit"><span>Submit Review</span></button>
+                                                                    <button class="button submit" title="Submit Review" type="submit"><span>{{ trans('user/label.submit_review') }}</span></button>
                                                                 </div>
                                                             </div>
                                                         </fieldset>
-                                                    </form>
+                                                        {!! Form::close() !!}
                                                 </div>
                                             </div>
                                             <div class="clear"></div>
@@ -199,7 +202,7 @@
                                     <div class="related-pro wow">
                                         <div class="slider-items-products">
                                             <div class="new_title center">
-                                                <h2>{{ trans('user/label.same_category') }}</h2>
+                                                <h2>{{ trans('user/label.sameCategory') }}</h2>
                                             </div>
                                             <div id="related-products-slider" class="product-flexslider hidden-buttons">
                                                 <div class="slider-items slider-width-col4">
@@ -260,7 +263,7 @@
                                     <div class="upsell-pro wow">
                                         <div class="slider-items-products">
                                             <div class="new_title center">
-                                                <h2>{{ trans('user/label.same_brand') }}</h2>
+                                                <h2>{{ trans('user/label.sameBrand') }}</h2>
                                             </div>
                                             <div id="upsell-products-slider" class="product-flexslider hidden-buttons">
                                                 <div class="slider-items slider-width-col4">
