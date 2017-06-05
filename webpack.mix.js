@@ -1,7 +1,7 @@
 const { mix } = require('laravel-mix');
 
-const BOWERS_PATH = 'resources/assets/bowers/';
-const ADMIN_PATH = BOWERS_PATH + 'gentelella/';
+const USER_PATH = 'resources/assets/themeuser/';
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -16,6 +16,27 @@ const ADMIN_PATH = BOWERS_PATH + 'gentelella/';
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
 
+/**
+ * All user assets tasks
+ */
+
+mix.styles([
+    USER_PATH + 'css/bootstrap.min.css',
+    USER_PATH + 'css/style.css',
+    USER_PATH + 'css/revslider.css',
+    USER_PATH + 'css/owl.carousel.css',
+    USER_PATH + 'css/owl.theme.css',
+    USER_PATH + 'css/font-awesome.css',], 'public/css/user.min.css' );
+
+mix.scripts([
+    USER_PATH + 'js/jquery.min.js',
+    USER_PATH + 'js/bootstrap.min.js',
+    USER_PATH + 'js/common.js',
+    USER_PATH + 'js/revslider.js',
+    USER_PATH + 'js/owl.carousel.min.js',
+    USER_PATH + 'js/cloudzoom.js'], 'public/js/user.min.js');
+
+mix.copy(USER_PATH + 'images', 'public/images');
 /**
  * All admin assets tasks.
  */

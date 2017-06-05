@@ -19,4 +19,9 @@ class Brand extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    public function getUrlAttribute($value)
+    {
+        return 'images/brand/'.$value;
+    }
 }

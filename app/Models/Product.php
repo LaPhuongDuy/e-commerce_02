@@ -56,4 +56,34 @@ class Product extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function getUrlAttribute($value)
+    {
+        return 'images/product/'.$value;
+    }
+
+    public function getScoreAttribute($value)
+    {
+        return $value*10;
+    }
+
+    public function getPriceAttribute($value)
+    {
+        return '$'.$value.'.00';
+    }
+
+    public function getPriceSaleAttribute($value)
+    {
+        if($value !== NULL)
+        {
+            return '$'.$value.'.00';
+        }
+
+        return $value;
+    }
+
+    public function getVolumeAttribute($value)
+    {
+        return $value.' ml';
+    }
 }
