@@ -87,4 +87,9 @@ class Product extends Model
     {
         return $value . ' ml';
     }
+
+    public static function updateScore($query, $product_id, $score)
+    {
+        return $query->find($product_id)->update(['score' => $score]);
+    }
 }

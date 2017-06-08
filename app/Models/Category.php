@@ -49,5 +49,3 @@ class Category extends Model
     }
 
 }
-
-

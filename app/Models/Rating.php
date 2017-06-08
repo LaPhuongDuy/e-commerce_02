@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Rating extends Model
 {
     protected $fillable = [
-        'product_id', 'customer_id', 'score',
+        'product_id',
+        'customer_id',
+        'score',
     ];
 
     public function user()
@@ -18,5 +20,20 @@ class Rating extends Model
     public function product()
     {
         return $this->belongsTo(Product::class);
+    }
+
+    public static function getRateByCustomer($idProduct, $idCustomer)
+    {
+        return self::where(['product_id' => $idProduct, 'customer_id' => $idCustomer]);
+    }
+
+    public static function avgScore($idProduct)
+    {
+        return self::where('product_id', $idProduct)->avg('score');
+    }
+
+    public static function scoreByCustomer($idCustomer, $idProduct)
+    {
+        return self::getRateByCustomer($idProduct, $idCustomer);
     }
 }

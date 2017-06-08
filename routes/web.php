@@ -33,7 +33,4 @@ Route::group([
 
 Route::resource('/home', 'User\HomeController');
 Route::resource('/product', 'User\ProductController');
-Route::resource('/rating', 'User\RatingController');
-/*Route::group(['namespace' => 'User', 'prefix' => ''], function (){
-    Route::resource('/home', 'User\HomeController');
-});*/
+Route::resource('/rating', 'User\RatingController')->middleware('auth');

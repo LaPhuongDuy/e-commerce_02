@@ -35,7 +35,7 @@ return [
     //Home description
     'product_description' => 'Product Description',
     'email_to_friend' => 'Email to Friend',
-    'tags' => 'Tags',
+    'comments' => 'Comments',
     'reviews' => 'Reviews',
     'sameCategory' => 'Same category',
     'sameBrand' => 'Same brand',
@@ -43,4 +43,17 @@ return [
     'question_rate' => 'How do you rate this product?',
     'add_tags' => 'Add Tags:',
     'submit_review' => 'Submit Review',
+    'customer_reviews' => 'Customer Reviews',
+    'submit_comment' => 'Submit Comment',
+
+    //Category site
+    'categories' => 'Categories',
+    'page' => 'Page:',
+    'clear' => 'Clear',
+    'compare' => 'Compare',
+
+    //Rating site
+    'update_score' => 'Update score success!',
+    'rate_success' => 'Ratting success!',
+    'must_login_rate' => 'You must login to rating!',
 ];
