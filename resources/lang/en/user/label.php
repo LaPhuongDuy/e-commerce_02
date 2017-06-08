@@ -9,12 +9,14 @@ return [
     'register_customer' => 'Registered Customers',
     'has_account' => 'If you have an account with us, please log in.',
     'register' => 'Register',
-    'require_field' => 'Require Fields',
+    'require_field' => '* Require Fields',
 
     //Login site
     'title_login' => 'Login or Create an Account',
     'content_login' => 'By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.',
     'create_account' => 'Create an Account',
+    'new_customer' => 'New Customers',
+    'forgot_pass' => 'Forgot Your Password?',
 
     //Home site
     'list_wine' => 'LIST WINE',
@@ -35,7 +37,7 @@ return [
     //Home description
     'product_description' => 'Product Description',
     'email_to_friend' => 'Email to Friend',
-    'tags' => 'Tags',
+    'comments' => 'Comments',
     'reviews' => 'Reviews',
     'sameCategory' => 'Same category',
     'sameBrand' => 'Same brand',
@@ -43,4 +45,12 @@ return [
     'question_rate' => 'How do you rate this product?',
     'add_tags' => 'Add Tags:',
     'submit_review' => 'Submit Review',
+    'customer_reviews' => 'Customer Reviews',
+    'submit_comment' => 'Submit Comment',
+
+    //Category site
+    'categories' => 'Categories',
+    'page' => 'Page:',
+    'clear' => 'Clear',
+    'compare' => 'Compare',
 ];

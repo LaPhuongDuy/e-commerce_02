@@ -87,4 +87,20 @@ class Product extends Model
     {
         return $value . ' ml';
     }
+
+    public function scopeBestSeller($query)
+    {
+        return $query->take(config('common.number.bestseller'));
+    }
+
+    public function scopeLatestProduct($query)
+    {
+        return $query->orderBy('created_at')->take(config('common.number.latest_product'));
+    }
+
+    public function scopeOldProduct($query)
+    {
+        return $query->where('age', '>', config('common.number.age_old_product'))
+            ->take(config('common.number.old_product'));
+    }
 }

@@ -1,9 +1,6 @@
 <?php
-
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Model;
-
 class Category extends Model
 {
     protected $fillable = [
@@ -42,12 +39,18 @@ class Category extends Model
     public static function getRecursiveCategoriesOptions()
     {
         $categories = Category::all(['id', 'parent_id', 'name']);
-
         $options = static::recursive($categories);
 
         return $options;
     }
 
+    public function subcategories()
+    {
+        return $this->hasMany(Category::class, 'parent_id');
+    }
+
+    public function parentcategory()
+    {
+        return $this->belongsTo(Category::class, 'parent_id');
+    }
 }
-
-
